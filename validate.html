@@ -1,0 +1,31 @@
+<?php
+session_start();
+
+// Function to validate the passphrase
+function validate_passphrase($input) {
+    if (time() > $_SESSION['expiration']) {
+        echo "The passphrase has expired.<br>";
+        return false;
+    }
+    if ($input === $_SESSION['passphrase']) {
+        echo "The passphrase is correct.<br>";
+        return true;
+    } else {
+        echo "The passphrase is incorrect.<br>";
+        return false;
+    }
+}
+
+// Example of how to validate (in a real scenario, you would get the input from the user)
+if (isset($_POST['passphrase'])) {
+    $user_input = $_POST['passphrase'];
+    validate_passphrase($user_input);
+} else {
+    echo "No passphrase provided.<br>";
+}
+?>
+<form method="POST" action="validate_passphrase.php">
+    <label for="passphrase">Enter passphrase:</label>
+    <input type="text" id="passphrase" name="passphrase">
+    <input type="submit" value="Validate">
+</form>

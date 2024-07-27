@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <title>Account Registration</title>
+    <style>
+        body {
+            background-image: url('img/backgroundlearn_core.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Kanit', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .logo {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .logo img {
+            border-radius: 100%;
+            height: 100px;
+            width: 100px;
+        }
+        .create-account {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .log-in {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .log-in a {
+            color: white;
+            text-decoration: none;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .log-in a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        .container h2, .container label {
+            margin: 10px 0 5px;
+        }
+        .container input, .container select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .container .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+        }
+        .container .btn:hover {
+            background-color: #45a049;
+        }
+        .step {
+            display: none;
+        }
+        .step.active {
+            display: block;
+        }
+        .btn-nav {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn-nav:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentStep = 0;
+            const steps = document.querySelectorAll('.step');
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+
+            function updateNavButtons() {
+                prevBtn.style.display = currentStep === 0 ? 'none' : 'inline';
+                nextBtn.style.display = currentStep === steps.length - 1 ? 'none' : 'inline';
+            }
+
+            function validateStep(step) {
+                const fields = steps[step].querySelectorAll('input, select');
+                for (let field of fields) {
+                    if (!field.checkValidity()) {
+                        field.reportValidity();
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            nextBtn.addEventListener('click', function() {
+                if (validateStep(currentStep)) {
+                    steps[currentStep].classList.remove('active');
+                    currentStep++;
+                    if (currentStep < steps.length) {
+                        steps[currentStep].classList.add('active');
+                    }
+                    updateNavButtons();
+                }
+            });
+
+            prevBtn.addEventListener('click', function() {
+                steps[currentStep].classList.remove('active');
+                currentStep--;
+                if (currentStep >= 0) {
+                    steps[currentStep].classList.add('active');
+                }
+                updateNavButtons();
+            });
+
+            updateNavButtons();
+        });
+
+        function validateForm(event) {
+            const termsCheckbox = document.getElementById('terms');
+            const privacyCheckbox = document.getElementById('privacy');
+
+            if (!termsCheckbox.checked || !privacyCheckbox.checked) {
+                alert('You must agree to the Terms and Conditions and Privacy Policy to register.');
+                event.preventDefault();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="logo">
+        <img src="img/LearnCore3.png" alt="Logo">
+    </div>
+    <div class="create-account">
+        <h1>Create your account</h1>
+    </div>
+    <div class="log-in">
+        Already have an account? <a href="LearnCore_Login_V2.html">Log in</a>
+    </div>
+    <div class="container">
+        <h2>Admin Registration</h2>
+        <form action="submit_registrationADMIN.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm(event)">
+            <fieldset class="step active">
+                <legend>Step 1: Personal Information</legend>
+                <table>
+                    <tr>
+                        <td><label for="learner">Full Name Admin</label></td>
+                        <td><input type="text" id="learner" name="learner" placeholder="Full Name of Admin" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="username">Username</label></td>
+                        <td><input type="text" id="username" name="username" placeholder="Username" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password</label></td>
+                        <td><input type="password" id="password" name="password" placeholder="Password" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="dob">Date of Birth</label></td>
+                        <td><input type="date" id="dob" name="dob" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="gender">Gender</label></td>
+                        <td>
+                            <select id="gender" name="gender" required>
+                                <option value="">Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email</label></td>
+                        <td><input type="email" id="email" name="email" placeholder="Email" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="phone">Phone</label></td>
+                        <td><input type="text" id="phone" name="phone" placeholder="Phone Number" required></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="Role">Role</label></td>
+                        <td><input type="text" id="Role" name="Role" placeholder="Role" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button type="button" id="nextBtn" class="btn-nav">Next</button></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset class="step">
+                <legend>Step 2: Agreement</legend>
+                <table>
+                    <tr>
+                        <td><input type="checkbox" id="terms" name="terms" required></td>
+                        <td><label for="terms">I agree to the <a href="#">Terms and Conditions</a></label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="privacy" name="privacy" required></td>
+                        <td><label for="privacy">I agree to the <a href="#">Privacy Policy</a></label></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" id="prevBtn" class="btn-nav">Previous</button></td>
+                        <td><button type="submit" class="btn">Register</button></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

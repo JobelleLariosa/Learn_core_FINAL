@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./img/LearnCore3.png">
+    <!-- Used to import Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rokkitt&display=swap" rel="stylesheet">
+    <title>Learn_Core</title>
+    <style>
+        body {
+            background-image: url('./img/backgroundlearn_core.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: 'Rokkitt', serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .logo img {
+            height: 100px;
+            width: 100px;
+            border-radius: 100%;
+        }
+        .welcome-container h1 {
+            font-size: 2.5rem;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        p{
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="./img/LearnCore3.png" alt="LearnCore Logo">
+        </div>
+        <div class="welcome-container">
+            <h1>Welcome to LearnCore</h1>
+            <p>Register as:</p>
+            <a href="sample_1.html" class="button">User</a>
+            <a href="registration_admin.html" class="button">Admin</a>
+        </div>
+    </div>
+</body>
+</html>

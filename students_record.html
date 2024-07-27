@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Student Data</h1>
+
+    <?php
+    // Include the database connection file
+    require 'db_connection.php';
+
+    // Query to fetch data from the 'students' table
+    $query = "SELECT id, learner_name, username, gender, email, education_level, subscription FROM account_registration";
+    $result = $conn->query($query);
+
+    if ($result->num_rows > 0) {
+        // Start of the HTML table
+        echo '<div class="table-container">';
+        echo '<table>';
+        echo '<thead>';
+        echo '<tr>';
+        echo '<th>Full Name</th>';
+        echo '<th>Username</th>';
+        echo '<th>Gender</th>';
+        echo '<th>Email</th>';
+        echo '<th>Education Level</th>';
+        echo '<th>Subscription</th>';
+        echo '<th>Actions</th>';
+        echo '</tr>';
+        echo '</thead>';
+        echo '<tbody>';
+
+        // Fetch and display each row of data
+        while ($row = $result->fetch_assoc()) {
+            echo '<tr>';
+            echo '<td>' . htmlspecialchars($row['learner_name']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['username']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['gender']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['email']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['education_level']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['subscription']) . '</td>';
+            echo '<td>';
+            echo '<a href="edit_student.php?id=' . urlencode($row['id']) . '" class="btn btn-edit">Edit</a> ';
+            echo '<a href="delete_student.php?id=' . urlencode($row['id']) . '" class="btn btn-delete" onclick="return confirm(\'Are you sure you want to delete this record?\');">Delete</a>';
+            echo '</td>';
+            echo '</tr>';
+        }
+
+        echo '</tbody>';
+        echo '</table>';
+        echo '</div>';
+    } else {
+        echo 'No records found.';
+    }
+
+    // Close the database connection
+    $conn->close();
+    ?>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  
+      <link href="https://fonts.googleapis.com/css2?family=Rokkitt&display=swap" rel="stylesheet">
+      <link rel="website icon" type="png" href="img/LearnCore3.png" id="logo1" style="border-radius: 100%;">
+    <title>About Us</title>
+</head>
+    <style>
+
+          *{
+                font-family: 'Rokkitt', serif;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                border: none;
+                text-decoration: none;
+                text-transform: capitalize;
+                transition: all linear;
+                }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(img/backgroundlearn_core.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .Maincontainer {
+            background-image: url(img/backgroundlearn_core.png);
+            min-height: 100vh;
+            justify-items: center;
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 7%;
+            background-color: rgba(0, 0, 0, 0.5); /* Added transparency */
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .logo-link img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .logo {
+            border-radius: 50%;
+        }
+
+        .navigation ul {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navigation ul li {
+            margin: 0 0.5rem;
+        }
+
+        .navigation ul li a {
+            font-size: 1.2rem;
+            font-family: 'Rokkitt', serif;
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navigation ul li a:hover {
+            color: #802409;
+        }
+
+        #About {
+            background: #fff;
+            text-align: center;
+            margin-top: 100px; /* Adjust for fixed header */
+        }
+
+        #About h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        #About p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .about-1 {
+            height: 100px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .about-2 {
+            padding: 40px 0;
+        }
+
+        .content-box-lg {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-item {
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+
+        .about-item:hover {
+            transform: scale(1.05);
+        }
+
+        .about-item i {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .about-item h3 {
+            font-size: 1.4em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .about-item hr {
+            border: 1px solid #3498db;
+            margin: 10px auto 20px;
+            width: 50%;
+        }
+
+        .about-item p {
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        footer {
+            background-image: url(img/backgroundlearn_core.png);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content-box-lg {
+                padding: 0 10px;
+            }
+
+            .navigation ul li a {
+                font-size: 1rem;
+            }
+
+            .about-item h3 {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 576px) {
+            #About h1 {
+                font-size: 1.5em;
+            }
+
+            .about-item {
+                margin: 20px 0;
+            }
+
+            .about-item p {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="Maincontainer">
+        <header>
+            <a href="LearnCore_Homepage.html" class="logo-link">
+                <img src="img/LearnCore3.png" alt="LearnCore Logo" class="logo">
+            </a>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="mathematics_2.php">Home</a></li>
+                    <li><a href="aboutus.html">About</a></li>
+                    <li><a href="homepage_loginpage.html">Sign Out</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section id="About">
+            <div class="about-2">
+                <div class="content-box-lg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="about-item text-center">
+                                    <i class="fa fa-pencil"></i>
+                                    <h3>ABOUT US</h3>
+                                    <hr>
+                                    <p>At LearnCore, our mission is to revolutionize elementary education by providing engaging, interactive, and effective learning tools that cater to young learners' diverse needs. We are committed to making learning a fun and immersive experience through innovative technology that supports core subjects and fosters a solid academic foundation. Our goal is to inspire curiosity, build essential skills, and prepare students for future academic success, all while nurturing a lifelong love for learning.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="about-item text-center">
+                                    <i class="fa fa-book"></i>
+                                    <h3>MISSION</h3>
+                                    <hr>
+                                    <p>At LearnCore, our mission is to revolutionize elementary education by providing engaging, interactive, and effective learning tools that cater to young learners' diverse needs. We are committed to making learning a fun and immersive experience through innovative technology that supports core subjects and fosters a solid academic foundation. Our goal is to inspire curiosity, build essential skills, and prepare students for future academic success, all while nurturing a lifelong love for learning.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="about-item text-center">
+                                    <i class="fa fa-globe"></i>
+                                    <h3>VISION</h3>
+                                    <hr>
+                                    <p>Our vision is to be a leading force in educational technology, empowering every elementary student with the tools they need to thrive academically and personally. We envision a world where interactive and personalized learning experiences are accessible to all students, enabling them to achieve their full potential. By continually advancing our software and embracing the latest educational trends, we aim to shape the future of learning, making education both effective and enjoyable for generations to come.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="about-item text-center">
+                                    <i class="fa fa-globe"></i>
+                                    <h3>DEVELOPER</h3>
+                                    <h4>Jobelle M. Lariosa</h4>
+                                    <div class="card-img-container"><img  class="card-img-top selection-img" src="img/bel.jpg" style="height: 300px; width: 300px; border-radius: 100%;" alt="Card image"></div>
+                                    <hr>
+                                    <p>3rd-year IT student with a strong passion for web development, skilled in HTML, CSS, JavaScript, and modern frameworks such as React. Experienced in designing and building responsive, user-friendly websites and applications, with a focus on creating efficient and aesthetically pleasing digital solutions. Actively engages in personal projects and team-based hackathons to continuously enhance technical skills and stay updated with industry trends.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="text-center">
+        <p>&copy; 2024 All rights reserved by Jobelle M. Lariosa</p>
+    </footer>
+</body>
+</html>
